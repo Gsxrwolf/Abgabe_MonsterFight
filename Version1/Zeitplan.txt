@@ -1,0 +1,30 @@
+Aufgabe					geschätzte Zeit						gebrauchte Zeit
+
+Klassen für Monster mit 		30 Min							8 Min
+attributen erstellen und in 
+Konstruktor zuweisen
+
+Monster methoden hinzufügen		20 Min							10 Min
+
+Hauptauswahl für Monster 		30 Min							1 H
+Erstellung und Speicherung	
+
+
+Spielloop erstellen			10 Min							2 Min
+
+Spielloop Ablauf + win screen		1 H							20 Min
+
+Debuggen				1 H							30 Min
+
+Runden texte hinzufügen			20 Min							10 Min
+
+monster maneger verärbt zu den 		
+drei monstern		
+
+1 basic attac für jedes monster		10 Min
+hinzufügen	
+
+Attack auswahl hinzufügen	
+
+1 special attac für jeweils 		1 H
+jedes monster hinzufügen
