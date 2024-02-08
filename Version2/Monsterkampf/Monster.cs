@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Intrinsics.Arm;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Monsterkampf
+﻿namespace Monsterkampf
 {
-    internal class Monster
+    internal class Monster : Program
     {
+        // Protected fields to store monster attributes
         protected float healthPoints;
         protected float attackPoints;
         protected float defensePoints;
@@ -18,6 +12,7 @@ namespace Monsterkampf
         protected bool isWinner = false;
         protected string type;
 
+        // Getter and setter methods for each attribute
         #region Get Set
         public float GetHP()
         {
@@ -58,7 +53,7 @@ namespace Monsterkampf
             defensePoints = _dp;
             speed = _s;
         }
-        public string GetAll()
+        public string GetAll()  // Method to get all monster attributes as a formatted string
         {
             string output;
 
@@ -71,6 +66,11 @@ namespace Monsterkampf
         }
         #endregion
 
+        /// <summary>
+        /// Method to perform basic attack
+        /// </summary>
+        /// <param name="_enemy">Monster to attack</param>
+        /// <returns>Calculated damage amount</returns>
         public float BasicAttack(Monster _enemy)
         {
             float enemyDP = _enemy.GetDP();
@@ -83,6 +83,10 @@ namespace Monsterkampf
             return damage;
         }
 
+        /// <summary>
+        /// Method to print a respond after the attack
+        /// </summary>
+        /// <param name="_enemy">Monster to attack</param>
         public void BasicReaktion(Monster _enemy)
         {
             Program.TextAnimate("The " + type + " made " + damage + " damage to the " + _enemy.GetT() + "\n");
@@ -91,6 +95,10 @@ namespace Monsterkampf
             Program.TextAnimateTime("New HP of the " + _enemy.GetT() + " is " + _enemy.GetHP(), 2000);
         }
 
+        /// <summary>
+        /// Method to calculate the new health points after an attack
+        /// </summary>
+        /// <param name="_damage">Damage taken</param>
         public void CalcNewHp(float _damage)
         {
             healthPoints = healthPoints - _damage;
@@ -99,20 +107,19 @@ namespace Monsterkampf
                 healthPoints = 0;
             }
         }
+
+        /// <summary>
+        /// Method to check if the monster is dead
+        /// </summary>
+        /// <returns>Is dead or not</returns>
         public bool IsDead()
         {
-            if (healthPoints == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return healthPoints == 0;
         }
 
 
         #region Virtual Methods
+        // Virtual methods for special attacks
         virtual public string GetSpecialAttacksNames()
         {
             return "";
@@ -133,6 +140,7 @@ namespace Monsterkampf
         }
 
         #region Attack Reaction
+        // Virtual methods for reaction to special attacks
         virtual public void SpecialAttack1Reaktion(Monster _enemy)
         {
         }
